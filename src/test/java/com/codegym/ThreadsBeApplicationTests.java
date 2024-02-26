@@ -1,4 +1,4 @@
-package com.codegym.threads_be;
+package com.codegym;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
