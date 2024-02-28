@@ -3,16 +3,14 @@ package com.codegym.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
 @Data
 @Entity
-public class Like {
+public class ReThread {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     private User user;
-    @ManyToOne
+    @OneToOne
     private Thread thread;
-    private Date create_at;
 }
