@@ -2,7 +2,7 @@ package com.codegym.service;
 
 import com.codegym.model.Relationship;
 import com.codegym.repository.RelationshipRepository;
-import com.codegym.service.impl.RelationshipService;
+import com.codegym.service.intf.RelationshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

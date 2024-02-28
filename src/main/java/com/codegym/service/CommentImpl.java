@@ -2,7 +2,7 @@ package com.codegym.service;
 
 import com.codegym.model.Comment;
 import com.codegym.repository.CommentRepository;
-import com.codegym.service.impl.CommentService;
+import com.codegym.service.intf.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

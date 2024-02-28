@@ -1,5 +1,6 @@
 package com.codegym.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,8 +15,10 @@ public class User {
     private String username;
     private String password;
     private String name;
+
     private Date birthday;
     private String description;
     private int status;
+
     private Date create_at;
 }

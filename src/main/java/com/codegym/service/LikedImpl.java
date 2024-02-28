@@ -2,7 +2,7 @@ package com.codegym.service;
 
 import com.codegym.model.Liked;
 import com.codegym.repository.LikedRepository;
-import com.codegym.service.impl.LikedService;
+import com.codegym.service.intf.LikedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

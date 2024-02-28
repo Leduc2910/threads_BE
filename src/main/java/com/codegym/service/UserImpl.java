@@ -1,14 +1,14 @@
 package com.codegym.service;
 
 import com.codegym.model.User;
-import com.codegym.service.impl.UserService;
+import com.codegym.service.intf.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 @Service
-public class UserServiceImpl implements UserService{
+public class UserImpl implements UserService{
     @Autowired
     private UserService userService;
     @Override

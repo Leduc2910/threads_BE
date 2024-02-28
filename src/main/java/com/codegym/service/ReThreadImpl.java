@@ -1,7 +1,7 @@
 package com.codegym.service;
 
 import com.codegym.model.ReThread;
-import com.codegym.service.impl.ReThreadService;
+import com.codegym.service.intf.ReThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.codegym.service;
 
 import com.codegym.model.Authorization;
 import com.codegym.repository.AuthorizationRepository;
-import com.codegym.service.impl.AuthorizationService;
+import com.codegym.service.intf.AuthorizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

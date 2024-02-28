@@ -1,4 +1,4 @@
-package com.codegym.service.impl;
+package com.codegym.service.intf;
 
 import java.util.List;
 import java.util.Optional;

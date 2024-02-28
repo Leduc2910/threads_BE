@@ -1,6 +1,6 @@
 package com.codegym.service;
 
-import com.codegym.service.impl.ThreadService;
+import com.codegym.service.intf.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
