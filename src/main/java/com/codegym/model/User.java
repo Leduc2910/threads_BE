@@ -12,13 +12,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String username;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String name;
-
+    @Column(nullable = false)
     private Date birthday;
     private String description;
-    private int status;
-
+    private int status = 0;
     private Date create_at;
 }

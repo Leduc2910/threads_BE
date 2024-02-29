@@ -16,5 +16,7 @@ public class Comment {
     private User user;
     @ManyToOne
     private Thread thread;
+    @Column(nullable = false)
+    private String content;
     private Date create_at;
 }

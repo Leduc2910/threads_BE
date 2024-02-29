@@ -16,6 +16,8 @@ public class Thread {
     @ManyToOne
     private Authorization authorization;
     private Date create_at;
+    @Column(nullable = false)
+    private String content;
     @ManyToOne
     private User user;
 }

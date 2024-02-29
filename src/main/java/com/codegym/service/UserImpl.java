@@ -1,6 +1,7 @@
 package com.codegym.service;
 
 import com.codegym.model.User;
+import com.codegym.repository.UserRepository;
 import com.codegym.service.intf.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,26 +11,26 @@ import java.util.Optional;
 @Service
 public class UserImpl implements UserService{
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
     @Override
     public void save(User user) {
-        userService.save(user);
+        userRepository.save(user);
 
     }
 
     @Override
     public void delete(Long id) {
-        userService.delete(id);
+        userRepository.deleteById(id);
 
     }
 
     @Override
     public List<User> findAll() {
-        return userService.findAll();
+        return userRepository.findAll();
     }
 
     @Override
     public Optional<User> findEById(Long id) {
-        return userService.findEById(id);
+        return userRepository.findById(id);
     }
 }
