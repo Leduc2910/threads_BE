@@ -2,8 +2,10 @@ package com.codegym.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -12,15 +14,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @NotEmpty(message = "Vui lòng nhập tài khoản")
     private String username;
-    @Column(nullable = false)
+    @NotEmpty(message = "Vui lòng nhập mật khẩu")
+    @Size(min = 6, message = "Mật khẩu phải từ 6 kí tự trở lên")
     private String password;
-    @Column(nullable = false)
+    @NotEmpty(message = "Vui lòng nhập tên hiển thị")
     private String name;
-    @Column(nullable = false)
+    @NotNull(message = "Vui lòng nhập ngày sinh")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
     private String description;
     private int status = 0;
-    private Date create_at;
+    private final LocalDateTime create_at = LocalDateTime.now();
 }

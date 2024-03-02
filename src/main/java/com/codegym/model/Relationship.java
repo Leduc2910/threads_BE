@@ -13,5 +13,5 @@ public class Relationship {
     private User user1;
     @ManyToOne
     private User user2;
-    private int status;
+    private int status = 1;
 }

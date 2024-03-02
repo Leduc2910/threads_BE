@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -15,9 +16,17 @@ public class Thread {
     private Long id;
     @ManyToOne
     private Authorization authorization;
-    private Date create_at;
-    @Column(nullable = false)
+    private final LocalDateTime create_at = LocalDateTime.now();
     private String content;
     @ManyToOne
     private User user;
+    @OneToMany (cascade = CascadeType.ALL)
+    @JoinColumn(name = "thread_id")
+    private Set<UsedImage> usedImageSet;
+    @OneToMany (cascade = CascadeType.ALL)
+    @JoinColumn(name = "thread_id")
+    private Set<Liked> likedSet;
+    @OneToMany (cascade = CascadeType.ALL)
+    @JoinColumn(name = "thread_id")
+    private Set<Comment> commentSet;
 }

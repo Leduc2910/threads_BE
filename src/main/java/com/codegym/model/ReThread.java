@@ -11,6 +11,6 @@ public class ReThread {
     private Long id;
     @ManyToOne
     private User user;
-    @OneToOne
+    @ManyToOne
     private Thread thread;
 }

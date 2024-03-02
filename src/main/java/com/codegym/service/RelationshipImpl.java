@@ -1,6 +1,7 @@
 package com.codegym.service;
 
 import com.codegym.model.Relationship;
+import com.codegym.model.User;
 import com.codegym.repository.RelationshipRepository;
 import com.codegym.service.intf.RelationshipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,15 @@ public class RelationshipImpl implements RelationshipService {
     @Override
     public Optional<Relationship> findEById(Long id) {
         return relationshipRepository.findById(id);
+    }
+
+    @Override
+    public Relationship getRelationshipWithUserID(User user1, User user2) {
+        return relationshipRepository.getRelationshipByUser1AndUser2(user1,user2);
+    }
+
+    @Override
+    public Relationship getRelationshipWithUserIDAndStatus(User user1, User user2, int status) {
+        return relationshipRepository.getRelationshipByUser1AndUser2AndStatus(user1,user2, status);
     }
 }
