@@ -20,10 +20,19 @@ public class ThreadController {
 
     @GetMapping
     public ResponseEntity<List<Thread>> showAll() {
-        List<Thread> usedImageList = threadService.findAll();
-        return new ResponseEntity<>(usedImageList, HttpStatus.OK);
+        List<Thread> threadList = threadService.findAllByCreateAt();
+        return new ResponseEntity<>(threadList, HttpStatus.OK);
     }
-
+    @GetMapping("{id}")
+    public ResponseEntity<Thread> getThreadById(@PathVariable Long id) {
+        Thread thread = threadService.findEById(id).get();
+        return new ResponseEntity<>(thread, HttpStatus.OK);
+    }
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<Thread>> getThreadByUserID(@PathVariable Long id) {
+        List<Thread> threadList = threadService.findAllByUserID(id);
+        return new ResponseEntity<>(threadList, HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<String> create(@RequestBody Thread thread) {
         threadService.save(thread);

@@ -24,7 +24,11 @@ public class UserController {
         List<User> userList = userIService.findAll();
         return new ResponseEntity<>(userList, HttpStatus.OK);
     }
-
+    @GetMapping("/search")
+    public ResponseEntity<List<User>> showByName(@RequestParam String q) {
+        List<User> userList = userIService.findAllByUsernameOrName(q);
+        return new ResponseEntity<>(userList, HttpStatus.OK);
+    }
     @PostMapping("")
     public ResponseEntity<String> create(@RequestBody User user) {
         userIService.save(user);
@@ -43,11 +47,19 @@ public class UserController {
         userIService.delete(id);
         return new ResponseEntity<>("Xóa thành công", HttpStatus.OK);
     }
-    @GetMapping("@{username}")
-    public ResponseEntity<User> getDetailUser(@PathVariable String username) {
-        User user = userIService.findUserByUsername(username);
+
+    @GetMapping("{id}")
+    public ResponseEntity<User> getDetailUser(@PathVariable Long id) {
+        User user = userIService.findEById(id).get();
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping("expect/{id}")
+    public ResponseEntity<List<User>> getAllExpectOne(@PathVariable Long id) {
+        List<User> userList = userIService.findAllExpectID(id);
+        return new ResponseEntity<>(userList, HttpStatus.OK);
+    }
+
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody User user) {
         User currentUser = userIService.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
@@ -56,6 +68,7 @@ public class UserController {
         }
         return new ResponseEntity<>("Sai thông tin tài khoản hoặc mật khẩu", HttpStatus.UNAUTHORIZED);
     }
+
     @PostMapping("register")
     public ResponseEntity<String> register(@Validated @RequestBody User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

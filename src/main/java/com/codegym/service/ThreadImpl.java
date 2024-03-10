@@ -32,4 +32,14 @@ public class ThreadImpl implements ThreadService {
     public Optional<Thread> findEById(Long id) {
         return threadRepository.findById(id);
     }
+
+    @Override
+    public List<Thread> findAllByCreateAt() {
+        return threadRepository.findByOrderByIdDesc();
+    }
+
+    @Override
+    public List<Thread> findAllByUserID(Long userId) {
+        return threadRepository.findByUserId(userId);
+    }
 }

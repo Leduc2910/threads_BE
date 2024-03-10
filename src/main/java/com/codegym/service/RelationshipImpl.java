@@ -42,4 +42,14 @@ public class RelationshipImpl implements RelationshipService {
     public Relationship getRelationshipWithUserIDAndStatus(User user1, User user2, int status) {
         return relationshipRepository.getRelationshipByUser1AndUser2AndStatus(user1,user2, status);
     }
+
+    @Override
+    public List<Relationship> getFollower(Long id) {
+        return relationshipRepository.getByUser2Id(id);
+    }
+
+    @Override
+    public List<Relationship> getFollowing(Long id) {
+        return relationshipRepository.getByUser1Id(id);
+    }
 }

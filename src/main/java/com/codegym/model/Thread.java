@@ -17,6 +17,7 @@ public class Thread {
     @ManyToOne
     private Authorization authorization;
     private final LocalDateTime create_at = LocalDateTime.now();
+    @Column(columnDefinition = "text")
     private String content;
     @ManyToOne
     private User user;

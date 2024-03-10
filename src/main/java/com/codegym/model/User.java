@@ -24,7 +24,8 @@ public class User {
     @NotNull(message = "Vui lòng nhập ngày sinh")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
-    private String description;
+    private String description = "";
     private int status = 0;
     private final LocalDateTime create_at = LocalDateTime.now();
+    private String avatar = "avatar-default.png";
 }
